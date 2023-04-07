@@ -57,7 +57,7 @@ export const getToken = async (settings: Settings): Promise<TokenResponse> => {
   // Prepare credentials for openid-connect token request
   // ref: http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
   const credentials = settings.credentials || ({} as any);
-  const payload = stringifyQueryParams({
+  const payload = {
     username: credentials.username,
     password: credentials.password,
     grant_type: credentials.grantType,
@@ -71,16 +71,14 @@ export const getToken = async (settings: Settings): Promise<TokenResponse> => {
           client_secret: credentials.clientSecret,
         }
       : {}),
-  });
+  };
 
   const options = settings.requestOptions ?? {};
   const headers = new Headers(options.headers);
 
   if (credentials.clientSecret) {
-    headers.set(
-      "Authorization",
-      atob(credentials.clientId + ":" + credentials.clientSecret)
-    );
+    payload.scope = "openid";
+    payload.client_secret = credentials.clientSecret;
   }
 
   headers.set("content-type", "application/x-www-form-urlencoded");
@@ -89,7 +87,7 @@ export const getToken = async (settings: Settings): Promise<TokenResponse> => {
     ...options,
     method: "POST",
     headers,
-    body: payload,
+    body: stringifyQueryParams(payload),
   });
 
   const data: TokenResponseRaw = await response.json();

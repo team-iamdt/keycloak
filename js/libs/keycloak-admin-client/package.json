@@ -1,6 +1,6 @@
 {
   "name": "@team-iamdt/keycloak-admin-client",
-  "version": "21.0.2",
+  "version": "21.0.6",
   "description": "A client to interact with Keycloak's Administration API",
   "type": "commonjs",
   "main": "lib/index.js",
