@@ -1,13 +1,13 @@
-import { isUndefined, last, omit, pick } from "lodash-es";
-import urlJoin from "url-join";
-import { parseTemplate } from "url-template";
+import { isUndefined, last, omit, pick } from "lodash";
 import type { KeycloakAdminClient } from "../client.js";
 import {
-  fetchWithError,
   NetworkError,
+  fetchWithError,
   parseResponse,
 } from "../utils/fetchWithError.js";
 import { stringifyQueryParams } from "../utils/stringifyQueryParams.js";
+import urlJoin from "../utils/urlJoin";
+import { parseTemplate } from "../utils/urlTemplate";
 
 // constants
 const SLASH = "/";
@@ -187,7 +187,7 @@ export class Agent {
     returnResourceIdInLocationHeader?: { field: string };
     headers?: HeadersInit;
   }) {
-    const newPath = urlJoin(this.basePath, path);
+    const newPath = urlJoin([this.basePath, path]);
 
     // Parse template and replace with values from urlParams
     const pathTemplate = parseTemplate(newPath);

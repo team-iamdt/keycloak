@@ -2,7 +2,7 @@
 import { faker } from "@faker-js/faker";
 import { fail } from "assert";
 import * as chai from "chai";
-import { omit } from "lodash-es";
+import { omit } from "lodash";
 import { KeycloakAdminClient } from "../src/client.js";
 import type ClientRepresentation from "../src/defs/clientRepresentation.js";
 import type FederatedIdentityRepresentation from "../src/defs/federatedIdentityRepresentation.js";

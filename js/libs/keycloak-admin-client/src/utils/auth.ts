@@ -1,4 +1,4 @@
-import camelize from "camelize-ts";
+import camelize from "../utils/camelize";
 import { defaultBaseUrl, defaultRealm } from "./constants.js";
 import { fetchWithError } from "./fetchWithError.js";
 import { stringifyQueryParams } from "./stringifyQueryParams.js";

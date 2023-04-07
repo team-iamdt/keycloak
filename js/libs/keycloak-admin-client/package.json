@@ -2,7 +2,7 @@
   "name": "@team-iamdt/keycloak-admin-client",
   "version": "21.0.2",
   "description": "A client to interact with Keycloak's Administration API",
-  "type": "module",
+  "type": "commonjs",
   "main": "lib/index.js",
   "files": [
     "lib"
@@ -40,15 +40,12 @@
     "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "camelize-ts": "^2.3.0",
-    "lodash-es": "^4.17.21",
-    "url-join": "^5.0.0",
-    "url-template": "^3.1.0"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@types/chai": "^4.3.4",
-    "@types/lodash-es": "^4.17.6",
+    "@types/lodash": "^4.14.192",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.13.0",
     "chai": "^4.3.7",
