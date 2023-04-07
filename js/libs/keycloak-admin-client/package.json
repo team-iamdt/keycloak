@@ -1,5 +1,5 @@
 {
-  "name": "@keycloak/keycloak-admin-client",
+  "name": "@team-iamdt/keycloak-admin-client",
   "version": "21.0.2",
   "description": "A client to interact with Keycloak's Administration API",
   "type": "module",
@@ -35,6 +35,9 @@
     "test": {
       "command": "TS_NODE_PROJECT=tsconfig.test.json mocha --recursive \"test/**/*.spec.ts\" --timeout 10000"
     }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "camelize-ts": "^2.3.0",
